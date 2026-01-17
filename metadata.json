@@ -1,0 +1,5 @@
+{
+  "name": "US Stock Investment Insights Dashboard",
+  "description": "A sophisticated financial dashboard for monitoring US stock indices (S&P 500, NASDAQ) with moving averages, US 10-year Treasury yields, and M2 money supply trends, featuring AI-powered market analysis.",
+  "requestFramePermissions": []
+}
