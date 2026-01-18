@@ -26,7 +26,7 @@ jobs:
           node-version: 20
           cache: 'npm'
       - name: Install dependencies
-        run: npm ci
+        run: npm install  # 여기를 ci에서 install로 변경!
       - name: Build
         run: npm run build
       - name: Upload artifact
