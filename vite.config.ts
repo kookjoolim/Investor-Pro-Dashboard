@@ -3,9 +3,11 @@ import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
+  // 환경 변수 로드
   const env = loadEnv(mode, '.', '');
+  
   return {
-    // 👇 아래 줄을 추가했습니다. (저장소 이름과 정확히 일치해야 합니다)
+    // 1. 배포 주소 설정 (이게 없어서 화면이 안 나왔던 겁니다!)
     base: '/Investor-Pro-Dashboard/',
 
     server: {
@@ -13,10 +15,13 @@ export default defineConfig(({ mode }) => {
       host: '0.0.0.0',
     },
     plugins: [react()],
+    
+    // 2. API 키 연결 설정
     define: {
-      'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
+      // 깃허브(process.env) 또는 로컬(env)에서 API_KEY를 찾아서 넣어줍니다.
+      'process.env.API_KEY': JSON.stringify(process.env.API_KEY || env.API_KEY),
     },
+    
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
