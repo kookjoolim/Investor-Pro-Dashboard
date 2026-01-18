@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          # cache 줄이 사라짐
       - name: Install dependencies
         run: npm install  # 여기를 ci에서 install로 변경!
       - name: Build
